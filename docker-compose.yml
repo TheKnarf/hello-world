@@ -1,0 +1,43 @@
+version: "3.8"
+services:
+  reverse-proxy:
+    image: traefik:v2.3
+    command:
+      # Enables the Web UI
+      - "--api.insecure=true"
+      # Enabling docker provider
+      - "--providers.docker"
+      # Do not expose containers unless explicitly told so
+      - "--providers.docker.exposedbydefault=false"
+    ports:
+      # Http
+      - 80:80
+      # Web UI
+      - 8080:8080
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+
+  helloworld:
+    container_name: helloworld
+    build:
+      context: .
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.helloworld.rule=Host(`helloworld.localhost`)"
+      - "traefik.dashboard.port=80"
+    restart: unless-stopped
+
+  helloworld2:
+    container_name: helloworld2
+    build:
+      context: .
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.helloworld2.rule=Host(`helloworld2.localhost`)"
+      - "traefik.dashboard.port=80"
+    environment:
+      - title=Hello two.
+      - bgcolor=#4B3F72
+      - textcolor=#EEE5E9
+    restart: unless-stopped
+

@@ -1,13 +1,9 @@
 {
-  "name": "hello-world-docker",
-  "version": "1.0.0",
-  "main": "index.js",
-  "author": "Frank Lyder Bredland <fl@nyggen.com>",
-  "license": "MIT",
+  "name": "hello-world",
+	"private": true,
 	"scripts": {
-		"dev": "next dev",
-		"build": "next build",
-		"start": "next start"
+		"start": "next start -p 80",
+		"dev": "next dev"
 	},
   "dependencies": {
     "next": "^10.1.2",

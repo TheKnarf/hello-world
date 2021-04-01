@@ -1,0 +1,26 @@
+name: Releases
+
+on:
+  release:
+    types:
+      - published
+
+env:
+  IMAGE_NAME: theknarf/hello-world
+  DOCKERHUB_USERNAME: theknarf
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Build Docker image
+        run: docker build . --tag "$IMAGE_NAME:${{ github.event.release.tag_name }}"
+
+      - name: Log into registry
+        run: echo "${{ secrets.DOCKERHUB_PASSWORD }}" | docker login -u $DOCKERHUB_USERNAME --password-stdin
+
+      - name: Push api image
+        run: docker push $IMAGE_NAME:${{ github.event.release.tag_name }}

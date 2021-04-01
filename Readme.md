@@ -12,9 +12,7 @@ Add the following to your ´docker-compose.yml`:
 version: "3.8"
 services:
   helloworld:
-    container_name: helloworld
-    build:
-      context: .
+    image: theknarf/hello-world
     restart: unless-stopped
     environment:
       - title=Hello two.

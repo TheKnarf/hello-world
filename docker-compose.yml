@@ -18,9 +18,7 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
 
   helloworld:
-    container_name: helloworld
-    build:
-      context: .
+    image: theknarf/hello-world
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.helloworld.rule=Host(`localhost`)"
@@ -28,9 +26,7 @@ services:
     restart: unless-stopped
 
   helloworld2:
-    container_name: helloworld2
-    build:
-      context: .
+    image: theknarf/hello-world
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.helloworld2.rule=Host(`helloworld2.localhost`)"

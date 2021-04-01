@@ -24,3 +24,15 @@ jobs:
 
       - name: Push api image
         run: docker push $IMAGE_NAME:${{ github.event.release.tag_name }}
+
+      - name: Tag as latest and push
+        run: |
+          docker tag "$IMAGE_NAME:${{ github.event.release.tag_name}}" $IMAGE_NAME:latest
+          docker push $IMAGE_NAME:latest
+
+      - name: Docker Hub Description
+        uses: peter-evans/dockerhub-description@v2
+        with:
+          username: $DOCKERHUB_USERNAME
+          password: ${{ secrets.DOCKERHUB_PASSWORD }}
+          repository: $IMAGE_NAME

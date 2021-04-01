@@ -36,3 +36,4 @@ jobs:
           username: $DOCKERHUB_USERNAME
           password: ${{ secrets.DOCKERHUB_PASSWORD }}
           repository: $IMAGE_NAME
+          readme-filepath: ./Readme.md

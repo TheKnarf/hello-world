@@ -1,5 +1,8 @@
 # Hello World
 
+[![Docker Image Version (latest semver)](https://img.shields.io/docker/v/theknarf/hello-world?style=for-the-badge)](https://hub.docker.com/r/theknarf/hello-world)
+[![GitHub Repo stars](https://img.shields.io/github/stars/theknarf/hello-world?style=for-the-badge)](https://github.com/TheKnarf/hello-world)
+
 `Hello World` is a Docker container for showing a `Hello World` webpage, its useful for debugging.
 
 ![Screenshot of the app](./screenshot.png)

@@ -23,7 +23,7 @@ services:
       context: .
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.helloworld.rule=Host(`helloworld.localhost`)"
+      - "traefik.http.routers.helloworld.rule=Host(`localhost`)"
       - "traefik.dashboard.port=80"
     restart: unless-stopped
 

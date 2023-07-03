@@ -7,8 +7,17 @@
 
 ![Screenshot of the app](./screenshot.png)
 
+## Docker setup
+
+You can start the container as following using Docker:
+
+```bash
+docker run -d -p 80:80 theknarf/hello-world
+```
+
 ## Docker compose setup
 
+Or using `docker-compose` you can start it as following.
 Add the following to your ´docker-compose.yml`:
 
 ```
@@ -21,6 +30,8 @@ services:
       - title=Hello two.
       - bgcolor=#4B3F72
       - textcolor=#EEE5E9
+    ports:
+      - 80:80
 ```
 
 You can change some properties like colors and text using enviroment variables.

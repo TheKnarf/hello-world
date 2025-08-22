@@ -47,3 +47,4 @@ top | 20vh | Title top property
 marginLeft | 17vw | Title margin-left property
 googleFontFamily  | | Google font name
 googleFontDisplay | | Google font display type
+PORT | 80 | Port number to run on inside the container

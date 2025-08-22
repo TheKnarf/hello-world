@@ -34,6 +34,7 @@ ENV PNPM_HOME="/pnpm"
 ENV PATH="$PNPM_HOME:$PATH"
 RUN corepack enable
 
+ENV PORT=80
 EXPOSE 80
 
-ENTRYPOINT ["pnpm", "exec", "next", "start", "-p", "80"]
+ENTRYPOINT ["pnpm", "exec", "next", "start"]
